@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 200px;
+            height: 300px;
+            position: relative;
+        }
+        .container img{
+            object-position: center;
+            object-fit: cover;
+            position: absolute;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <img src="assets/img3.jpg" onclick='src="assets/img1 (1).jpg"' alt="" width="200px">
+
+    <br>
+    <div class="container">
+        <img id='view' src="assets/img1 (1).jpg" alt="">
+    </div>
+    <br>
+    <button onclick="view.src='assets/img2.jpg'">Img2</button>
+    <button onclick="view.src='assets/img3.jpg'">Img3</button>
+    <button onclick="view.src='assets/img4.jpg'">Img4</button>
+    <button onclick="view.src='assets/img1 (1).jpg'">Default</button>
+</body>
+</html>

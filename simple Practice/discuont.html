@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Buy Up to 1000 Pesos for 15% discount</p>
+    <input type="text" name="" id="cashier">
+    <button onclick="calculateDiscount()">Buy</button>
+    <p id="pay"></p>
+    <script>
+        function calculateDiscount(){
+            let cashierInput = document.getElementById('cashier').value;
+            let purchase = parseFloat(cashierInput);
+
+            if(purchase >=1500){
+                purchase *= 0.85;
+            }
+
+            let payElement = document.getElementById('pay');
+            payElement.innerHTML = "Total Payment: " + purchase.toFixed(2) + " Peses";
+        }
+    </script>
+</body>
+</html>
