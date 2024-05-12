@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul li{
+            padding: 20px;
+            background-color: #ddd;
+            cursor: pointer;
+        }
+        ul li:hover{
+            background-color: #4a4545;
+            color: #fff;
+        }
+        .hidden{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <ul>
+            <li class="btn" onclick="hideClick('p')">P</li>
+            <li class="btn" onclick="hideClick('p2')">P2</li>
+            <li class="btn" onclick="hideClick('p3')">P3</li>
+            <li class="btn" onclick="hideClick('p4')">P4</li>
+        </ul>
+    </div>
+    <div class="hidden" id="p">
+        <p>This is p</p>
+    </div>
+    <div class="hidden" id="p2">
+        <p>This is p2</p>
+    </div>
+    <div class="hidden" id="p3">
+        <p>This is p3</p>
+    </div>
+    <div class="hidden" id="p4">
+        <p>This is p4</p>
+    </div>
+   
+    <script>
+        function hideClick(divId){
+            const hide = document.querySelectorAll('.hidden');
+            hide.forEach(function(hiddens){
+                hiddens.style.display = "none";
+            });
+            document.getElementById(divId).style.display="block";
+        }
+
+
+
+    </script>
+</body>
+</html>

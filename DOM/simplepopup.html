@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>  
+        #btn{
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .submited{
+            width: 300px;
+            box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.6);
+            padding: 40px 30px 20px;
+            position: absolute; 
+            top: 0%;
+            left: 50%;
+            /* make variable to use later */
+            transform: translate(var(--translate,-50%,-50%)) scale(var(--scale,0.1));
+            transition: transform 0.4s, top 0.4s;
+            visibility: var(--hidden,hidden);
+            text-align: center;
+        }
+        button{
+            cursor: pointer;
+        }
+        .open-pop{
+            top: 50%;
+           --scale:1;
+           --hidden:visible;
+        }
+        .submited i{
+            color: white;
+            font-size: 30px;
+            padding: 20px;
+            clip-path: circle();
+            position: fixed;
+            top: -30px;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background-color: forestgreen;
+        }
+        .submited span{
+            font-size: 25px;
+            margin: 10px 0;
+            display: block;
+        }
+        #ok{
+            background-color: forestgreen;
+            border: none;
+            color: white;
+            width: 100%;
+            font-size: 16px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">Submit</button>
+        <div class="submited" id="popup">
+            <div class="icon">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <span>Thank You!</span>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id maxime explicabo ad autem provident odit harum architecto quod hic consequatu</p>
+            <button id="ok">Ok</button>
+        </div>
+
+    <script>
+        const btn = document.getElementById('btn');
+        const ok = document.getElementById('ok');
+
+        const popup = document.getElementById('popup');
+        btn.onclick = function (){
+            popup.classList.add('open-pop');
+            this.style.display='none';
+        }
+        ok.onclick = function (){
+            popup.classList.remove('open-pop');
+            btn.style.display='block';
+        }
+    </script>
+</body>
+</html>

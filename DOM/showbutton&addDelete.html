@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show button</title>
+    <script src="https://kit.fontawesome.com/8aee5de504.js" crossorigin="anonymous"></script>
+    <style>
+        .container{
+            height: 150px;
+            width: 100%;
+        }
+        .hidden-content{
+            display: none;
+        }
+        ul{
+            list-style: none;
+            padding: 20px;
+            font-size: 30px;
+            line-height: 60px;
+            border: 1px solid #ddd;
+            background-color: #000;
+            color: #fff;
+        }
+        ul li{
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <button class="btn">Show More</button>
+    <div class="container">
+        <p class="hidden-content">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium dolor distinctio unde commodi possimus dolore vitae officiis corporis soluta, neque numquam illo veniam consequuntur. Ut, mollitia omnis laborum debitis amet sunt voluptates neque consequatur et voluptatum expedita autem quaerat officiis, possimus perferendis modi accusantium nemo inventore culpa obcaecati. Asperiores, distinctio.</p>
+    </div>
+    
+    <div class="ul-container">
+        <ul class="ul">
+            <li><input type="text" id="input" value="red"><i class="fa-regular fa-plus" id="add"></i></li>
+            <li class="classitems">Coffe</li>
+            <li class="classitems">Coke</li>
+            <li class="classitems">Mountain Dew</li>
+            <li class="classitems">Royal</li>
+            <li class="classitems">RC</li>
+            <li class="classitems">Sprite</li>
+        </ul>
+    </div>
+    
+    <script>
+        
+        let hideContent = document.querySelector('.hidden-content');
+        let btn = document.querySelector('.btn');
+       // Function to toggle the visibility of hidden content and update button text accordingly
+        function paragraphEvent() {
+            if (hideContent.classList.contains('hidden-content')) {
+                hideContent.classList.remove('hidden-content');
+                btn.innerHTML = 'Show Less';
+            } else {
+                hideContent.classList.add('hidden-content');
+                btn.innerHTML = 'Show More';
+            }
+        }
+
+        // Function to scale up the button on hover
+        function addHover() {
+            btn.style.transform = 'scale(1.1)';
+        }
+
+        // Event listener for click to toggle content visibility
+        btn.addEventListener('click', paragraphEvent);
+
+        // Event listener for mouseover to add hover effect
+        btn.addEventListener('mouseover', addHover);
+
+        // Event listener for mouseout to return button to original size
+        btn.addEventListener('mouseout', () => {
+            btn.style.transform = 'scale(1)';
+        });
+
+
+        // add and delete
+        const li = document.querySelectorAll('.classitems');
+        const input = document.getElementById('input');
+        const add = document.getElementById('add');
+        const ul = document.querySelector('.ul');
+
+        // Function to create and append trash icon to a list item
+        function appendTrashIcon(item) {
+            //create icon element
+            let icon = document.createElement('i');
+            //add class name to created element
+            icon.className = 'fa-regular fa-trash';
+            //append child 
+            item.appendChild(icon);
+
+            //add event click which display none the parentnode
+            //delete list
+            icon.addEventListener('click', (e) => {
+                e.target.parentNode.style.display = 'none';
+            });
+        }
+
+        // Add event listener to the plus icon to add new list item
+        add.addEventListener('click', () => {
+            let newListItem = document.createElement('li');
+            newListItem.textContent = input.value;
+            newListItem.classList.add('classitems');
+            ul.appendChild(newListItem);
+
+            // Append trash icon to the newly added list item
+            appendTrashIcon(newListItem);
+        });
+
+        // Append trash icon to existing list items
+        for (let i = 0; i < li.length; i++) {
+            appendTrashIcon(li[i]);
+        }
+
+      
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Navagation</title>
+    <style>
+        .links{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">Menu</button>
+    <ul class="links">
+        <li>Home</li>
+        <li>About</li>
+        <li>Contact</li>
+    </ul>
+
+    <script>
+        let btn = document.getElementById('btn');
+        let links = document.querySelector('.links');
+        btn.addEventListener('click',()=>{
+            const hide = document.querySelector('.links').style.display=='block';
+
+            console.log(hide)
+            if(hide){
+                links.style.display = 'none';
+            }else{
+                links.style.display = 'block';
+            }
+        })
+    </script>
+</body>
+</html>
